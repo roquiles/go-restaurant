@@ -4,7 +4,7 @@ import api from "../../services/api";
 import { Container } from "./styles";
 
 interface FoodType {
-  id: Number;
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -13,9 +13,9 @@ interface FoodType {
 }
 
 interface FoodProps {
-  id: Number;
+  id: number;
   food: FoodType;
-  handleDelete: (id: Number) => void;
+  handleDelete: (id: number) => void;
   handleEditFood: (food: FoodType) => void;
 }
 
@@ -57,7 +57,7 @@ export function FoodItem({
             type="button"
             className="icon"
             onClick={setEditingFood}
-            data-testid={`edit-food-${food.id}`}
+            data-testid={`edit-food-${id}`}
           >
             <FiEdit3 size={20} />
           </button>
@@ -65,8 +65,8 @@ export function FoodItem({
           <button
             type="button"
             className="icon"
-            onClick={() => handleDelete(food.id)}
-            data-testid={`remove-food-${food.id}`}
+            onClick={() => handleDelete(id)}
+            data-testid={`remove-food-${id}`}
           >
             <FiTrash size={20} />
           </button>
@@ -75,13 +75,13 @@ export function FoodItem({
         <div className="availability-container">
           <p>{isAvailable ? "Disponível" : "Indisponível"}</p>
 
-          <label htmlFor={`available-switch-${food.id}`} className="switch">
+          <label htmlFor={`available-switch-${id}`} className="switch">
             <input
-              id={`available-switch-${food.id}`}
+              id={`available-switch-${id}`}
               type="checkbox"
               checked={isAvailable}
               onChange={toggleAvailable}
-              data-testid={`change-status-food-${food.id}`}
+              data-testid={`change-status-food-${id}`}
             />
             <span className="slider" />
           </label>
